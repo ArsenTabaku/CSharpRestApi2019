@@ -8,7 +8,7 @@ namespace CustomerAppUI
 {
     class Program
     {
-        //The access point from UI to BLL service
+        //The access point from UI to BLL service...
         static BLLFacade bllFacade = new BLLFacade();
 
 
@@ -26,8 +26,8 @@ namespace CustomerAppUI
 
             // Second way of creating an object
             CustomerBO cust2 = new CustomerBO();
-            cust2.FirstName = "Erild";
-            cust2.LastName = "Balla";
+            cust2.FirstName = "Visar";
+            cust2.LastName = "Mance";
             cust2.Address = "Tirane";
             bllFacade.CustomerService.Create(cust2);
 
