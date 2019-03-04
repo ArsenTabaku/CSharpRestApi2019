@@ -8,8 +8,8 @@ namespace CustomerAppDAL.Repositories
 {
     class CustomerRepositoryEFMemory : ICustomerRepository
     {
-        InMemoryContext _context;
-        public CustomerRepositoryEFMemory(InMemoryContext context)
+        CustomerAppContext _context;
+        public CustomerRepositoryEFMemory(CustomerAppContext context)
         {
             _context = context;
         }

@@ -12,8 +12,6 @@ namespace CustomerAppDAL.Repositories
         private static List<Customer> Customers = new List<Customer>();
         private static int Id = 1;
         #endregion
-
-
         public Customer Create(Customer c)
         {
             Customer newCust;

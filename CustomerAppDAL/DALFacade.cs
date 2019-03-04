@@ -6,23 +6,12 @@ namespace CustomerAppDAL
 {
     public class DALFacade
     {
-        //With a property
-        public ICustomerRepository CustomerRepository
-        {
-            get
-            {
-                return new CustomerRepositoryEFMemory(
-                    new InMemoryContext());  //this line should be Context.InMemoryContext()
-            }
-        }
-
-
-
+        //the only access point through DAL Facade is through Unit of Work
         public IUnitOfWork UnitOfWork
         {
             get
             {
-                return new UnitOfWorkMem();
+                return new UnitOfWork();
             }
         }
     }

@@ -75,8 +75,6 @@ namespace CustomerAppUI
 
                 selection = ShowMenu(menuItems);
             }
-
-            Console.ReadLine();
         }
 
 

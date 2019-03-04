@@ -34,7 +34,21 @@ namespace CustomerAppBLL.Services     //this means that this class is under Cust
         }
 
 
-        
+        public void CreateAll(List<CustomerBO> c)
+        {
+            using (var uov = facade.UnitOfWork)
+            {
+                //data are stored in memory only after the foreach has finished (all customers are created)
+                foreach (var customer in c)
+                {
+                    var newCust = uov.CustomerRepository.Create(conv.Convert(customer));
+                }
+                uov.Complete();
+            }
+        }
+
+
+
         public CustomerBO Delete(int Id)
         {
             using (var uov = facade.UnitOfWork)
@@ -83,7 +97,6 @@ namespace CustomerAppBLL.Services     //this means that this class is under Cust
                 uow.Complete();
                 return conv.Convert(customerFromDb);
             }
-            
         }
 
 
