@@ -11,5 +11,10 @@ namespace CustomerAppDAL.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
+
+        //each customer can have 0-many orders
+        public List<Order> Orders { get; set; }
+
+        public List<CustomerAddress> Addresses { get; set; }
     }
 }

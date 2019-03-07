@@ -14,7 +14,7 @@ namespace CustomerAppBLL.Services     //this means that this class is under Cust
     {
         //using the CustomerConverter class we just created in the folder Converters
         CustomerConverter conv = new CustomerConverter();
-
+        AddressConverter aConv = new AddressConverter();
 
         DALFacade facade;
         public CustomerService(DALFacade facade)
@@ -65,7 +65,24 @@ namespace CustomerAppBLL.Services     //this means that this class is under Cust
         {
             using (var uov = facade.UnitOfWork)
             {
-                return conv.Convert(uov.CustomerRepository.Get(Id));
+                //1. Get and convert the customer
+                var cust = conv.Convert(uov.CustomerRepository.Get(Id));
+
+                //2. Get all related addresses from AddressRepository using address id
+                //3. Convert and Add the Addresses to te CustomerBO
+
+                //-----FIRST WAY-----
+                /*cust.Addresses = cust.AddressIds?
+                     .Select(id => aConv.Convert(uov.AddressRepository.Get(Id)))
+                     .ToList();*/
+
+
+                //----SECOND WAY----This way avoids making request for each customer, but instead makes one request
+                cust.Addresses = uov.AddressRepository.GetAllById(cust.AddressIds)
+                    .Select(a => aConv.Convert(a))
+                    .ToList();
+
+                return cust;
             }
         }
 
@@ -91,9 +108,27 @@ namespace CustomerAppBLL.Services     //this means that this class is under Cust
                 {
                     throw new InvalidOperationException("Customer not found!");
                 }
-                customerFromDb.FirstName = c.FirstName;
-                customerFromDb.LastName = c.LastName;
-                customerFromDb.Address = c.Address;
+                var customerUpdated = conv.Convert(c);
+                customerFromDb.FirstName = customerUpdated.FirstName;
+                customerFromDb.LastName = customerUpdated.LastName;
+                customerFromDb.Address = customerUpdated.Address;
+
+                //1. Remove every customerId and AddressId that does not exists in DBContext
+                customerFromDb.Addresses.RemoveAll(
+                    ca => !customerUpdated.Addresses.Exists(
+                        a => a.AddressId == ca.AddressId &&
+                        a.CustomerId == ca.CustomerId));
+
+                //2. Remove all ids that are already in database
+                customerUpdated.Addresses.RemoveAll(
+                    ca => customerFromDb.Addresses.Exists(
+                        a => a.AddressId == ca.AddressId &&
+                        a.CustomerId == ca.CustomerId));
+
+                //3. Add all new customerAddresses not yet seen in the DB
+                customerFromDb.Addresses.AddRange(
+                    customerUpdated.Addresses);
+
                 uow.Complete();
                 return conv.Convert(customerFromDb);
             }

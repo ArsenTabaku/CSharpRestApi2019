@@ -23,5 +23,8 @@ namespace CustomerAppBLL.BusinessObjects
         {
             get { return $"{FirstName} { LastName}"; }
         }
+
+        public List<int> AddressIds { get; set; }
+        public List<AddressBO> Addresses { get; set; }
     }
 }

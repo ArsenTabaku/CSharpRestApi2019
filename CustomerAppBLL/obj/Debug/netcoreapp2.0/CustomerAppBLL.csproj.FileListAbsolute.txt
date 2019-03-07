@@ -1,0 +1,12 @@
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\bin\Debug\netcoreapp2.0\CustomerAppBLL.deps.json
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\bin\Debug\netcoreapp2.0\CustomerAppBLL.dll
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\bin\Debug\netcoreapp2.0\CustomerAppBLL.pdb
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\bin\Debug\netcoreapp2.0\CustomerAppDAL.dll
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\bin\Debug\netcoreapp2.0\CustomerAppDAL.pdb
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\obj\Debug\netcoreapp2.0\CustomerAppBLL.csprojAssemblyReference.cache
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\obj\Debug\netcoreapp2.0\CustomerAppBLL.csproj.CoreCompileInputs.cache
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\obj\Debug\netcoreapp2.0\CustomerAppBLL.AssemblyInfoInputs.cache
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\obj\Debug\netcoreapp2.0\CustomerAppBLL.AssemblyInfo.cs
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\obj\Debug\netcoreapp2.0\CustomerAppBLL.csproj.CopyComplete
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\obj\Debug\netcoreapp2.0\CustomerAppBLL.dll
+C:\Users\Tabaku\source\GitHub\CustomerApp\CustomerAppBLL\obj\Debug\netcoreapp2.0\CustomerAppBLL.pdb

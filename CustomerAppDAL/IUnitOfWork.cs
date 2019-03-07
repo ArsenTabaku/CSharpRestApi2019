@@ -8,6 +8,7 @@ namespace CustomerAppDAL
     {
         ICustomerRepository CustomerRepository { get;  }
         IOrderRepository OrderRepository { get; }
+        IAddressRepository AddressRepository { get; }
 
         int Complete();
     }
